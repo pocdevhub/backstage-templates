@@ -37,7 +37,7 @@ spec:
         appName:
           title: App name
           type: string
-          default: sample-spring-boot-app-openshift
+          default: sample-spring-boot-app
         domainName:
           title: Name of the domain object
           type: string
