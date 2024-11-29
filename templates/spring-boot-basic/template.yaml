@@ -61,7 +61,7 @@ spec:
         namespace:
           title: The target namespace on Kubernetes
           type: string
-          default: demo
+          default: poc-backstage
         description:
           title: Description
           type: string
