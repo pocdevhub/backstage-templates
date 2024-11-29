@@ -69,7 +69,7 @@ spec:
         registryUrl:
           title: Registry URL
           type: string
-          default: image-registry.openshift-image-registry.svc:5000
+          default: default-route-openshift-image-registry.apps.k8s.dev.local:5000
         clusterDomain:
           title: OpenShift Cluster Domain
           type: string
