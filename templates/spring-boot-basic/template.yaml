@@ -144,7 +144,7 @@ spec:
       action: argocd:create-resources
       input:
         appName: ${{ parameters.appName }}
-        argoInstance: ktools-instance
+        argoInstance: main
         namespace: ${{ parameters.namespace }}
         repoUrl: https://github.com/${{ parameters.orgName }}/k8s-${{ parameters.appName }}.git
         path: 'manifests'
