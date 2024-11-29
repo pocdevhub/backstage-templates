@@ -73,7 +73,7 @@ spec:
         clusterDomain:
           title: OpenShift Cluster Domain
           type: string
-          default: apps.team.eastus.aroapp.io
+          default: apps.k8s.dev.local
   steps:
     - id: sourceCodeTemplate
       name: Generating the Source Code Component
