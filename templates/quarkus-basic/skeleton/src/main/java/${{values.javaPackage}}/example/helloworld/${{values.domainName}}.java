@@ -6,7 +6,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("${{ values.apiPath }}")
-public class GreetingResource {
+public class ${{values.domainName}} {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
