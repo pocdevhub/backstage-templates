@@ -48,11 +48,11 @@ spec:
         groupId:
           title: Maven Group ID
           type: string
-          default: com.team.services
+          default: com.team.helloworld
         javaPackage:
           title: Java package directory
           type: string
-          default: com/team/services
+          default: com/team/helloworld
         apiPath:
           title: REST API path
           type: string
