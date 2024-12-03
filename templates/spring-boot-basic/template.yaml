@@ -1,8 +1,8 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: java-basic-template
-  title: Create a Java App
+  name: spring-boot-basic-template
+  title: Create a Spring Boot App
   description: Create a Java App
   tags:
     - java

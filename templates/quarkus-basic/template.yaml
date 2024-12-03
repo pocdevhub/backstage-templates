@@ -102,54 +102,54 @@ spec:
         protectDefaultBranch: false
         repoVisibility: public
 
-    # - id: register
-    #   name: Registering the Catalog Info Component
-    #   action: catalog:register
-    #   input:
-    #     repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-    #     catalogInfoPath: /catalog-info.yaml
+    - id: register
+      name: Registering the Catalog Info Component
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: /catalog-info.yaml
 
-    # - id: k8sCodeTemplate
-    #   name: Generating the K8s Code Component
-    #   action: fetch:template
-    #   input:
-    #     url: ../../skeletons/argocd
-    #     values:
-    #       orgName: ${{ parameters.orgName }}
-    #       appName: ${{ parameters.appName }}
-    #       registryUrl: ${{ parameters.registryUrl }}
-    #       namespace: ${{ parameters.namespace }}
-    #       repoBranchName: ${{ parameters.repoBranchName }}
-    #     targetPath: ./gitops
+    - id: k8sCodeTemplate
+      name: Generating the K8s Code Component
+      action: fetch:template
+      input:
+        url: ../../skeletons/argocd
+        values:
+          orgName: ${{ parameters.orgName }}
+          appName: ${{ parameters.appName }}
+          registryUrl: ${{ parameters.registryUrl }}
+          namespace: ${{ parameters.namespace }}
+          repoBranchName: ${{ parameters.repoBranchName }}
+        targetPath: ./gitops
 
-    # - id: publish
-    #   name: Publishing to the K8s Code Repository
-    #   action: publish:github
-    #   input:
-    #     allowedHosts: ['github.com']
-    #     description: ${{ parameters.description }}
-    #     repoUrl: github.com?owner=${{ parameters.orgName }}&repo=k8s-${{ parameters.appName }}
-    #     defaultBranch: ${{ parameters.repoBranchName }}
-    #     sourcePath: ./gitops
-    #     repoVisibility: public
+    - id: publish
+      name: Publishing to the K8s Code Repository
+      action: publish:github
+      input:
+        allowedHosts: ['github.com']
+        description: ${{ parameters.description }}
+        repoUrl: github.com?owner=${{ parameters.orgName }}&repo=k8s-${{ parameters.appName }}
+        defaultBranch: ${{ parameters.repoBranchName }}
+        sourcePath: ./gitops
+        repoVisibility: public
 
-    # - id: create-webhook
-    #   name: Create GitHub Webhook
-    #   action: github:webhook
-    #   input:
-    #     repoUrl: github.com?repo=${{ parameters.appName }}&owner=${{ parameters.orgName }}
-    #     webhookUrl: http://el-${{ parameters.appName }}-${{ parameters.namespace }}.${{ parameters.clusterDomain }}
-    #     contentType: 'json'
+    - id: create-webhook
+      name: Create GitHub Webhook
+      action: github:webhook
+      input:
+        repoUrl: github.com?repo=${{ parameters.appName }}&owner=${{ parameters.orgName }}
+        webhookUrl: http://el-${{ parameters.appName }}-${{ parameters.namespace }}.${{ parameters.clusterDomain }}
+        contentType: 'json'
         
-    # - id: create-argocd-resources
-    #   name: Create ArgoCD Resources
-    #   action: argocd:create-resources
-    #   input:
-    #     appName: ${{ parameters.appName }}
-    #     argoInstance: pocKToolsInstance
-    #     namespace: ${{ parameters.namespace }}
-    #     repoUrl: https://github.com/${{ parameters.orgName }}/k8s-${{ parameters.appName }}.git
-    #     path: 'manifests/quarkus'
+    - id: create-argocd-resources
+      name: Create ArgoCD Resources
+      action: argocd:create-resources
+      input:
+        appName: ${{ parameters.appName }}
+        argoInstance: pocKToolsInstance
+        namespace: ${{ parameters.namespace }}
+        repoUrl: https://github.com/${{ parameters.orgName }}/k8s-${{ parameters.appName }}.git
+        path: 'manifests/quarkus'
 
   output:
     links:
