@@ -69,6 +69,9 @@ spec:
           title: Registry URL
           type: string
           default: default-route-openshift-image-registry.apps.k8s.dev.local:5000
+          enum:
+            - quay.io
+            - default-route-openshift-image-registry.apps.k8s.dev.local:5000
         clusterDomain:
           title: OpenShift Cluster Domain
           type: string
@@ -146,7 +149,7 @@ spec:
     #     argoInstance: pocKToolsInstance
     #     namespace: ${{ parameters.namespace }}
     #     repoUrl: https://github.com/${{ parameters.orgName }}/k8s-${{ parameters.appName }}.git
-    #     path: 'manifests'
+    #     path: 'manifests/quarkus'
 
   output:
     links:

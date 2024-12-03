@@ -1,0 +1,19 @@
+apiVersion: apps.openshift.io/v1
+kind: Deployment
+metadata:
+  name: ${{ values.appName }}
+  namespace: ${{ values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    app: ${{ values.appName }}
+  template:
+    metadata:
+      labels:
+        app: ${{ values.appName }}
+    spec:
+      containers:
+      - name: ${{ values.appName }}
+        image: ${{ values.registryUrl }}/tscristianopires/quarkus-hw:1.0.0
+        ports:
+        - containerPort: 8080
