@@ -146,7 +146,7 @@ spec:
         argoInstance: pocKToolsInstance
         namespace: ${{ parameters.namespace }}
         repoUrl: https://github.com/${{ parameters.orgName }}/k8s-${{ parameters.appName }}.git
-        path: 'manifests'
+        path: 'manifests/spring'
 
   output:
     links:
