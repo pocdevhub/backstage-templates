@@ -24,8 +24,8 @@ metadata:
 spec:
   to:
     kind: Service
-    name: minha-app
+    name: ${{ values.appName }}
   port:
-    targetPort: 8080  # A porta do container
+    targetPort: 8080
   tls:
-    termination: edge  # Para expor a rota com TLS
+    termination: edge
